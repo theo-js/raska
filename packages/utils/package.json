@@ -1,0 +1,11 @@
+{
+  "name": "@repo/utils",
+  "version": "1.0.0",
+  "description": "This package contains generic typescript utilitary functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "theo-js",
+  "license": "ISC"
+}
