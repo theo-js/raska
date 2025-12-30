@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: raska-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${RASKA_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${RASKA_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${RASKA_POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
