@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
-import { ApiModule } from './api/api.module';
+import { FeaturesModule } from './features/features.module';
 
 @Module({
   imports: [
@@ -9,7 +9,7 @@ import { ApiModule } from './api/api.module';
       envFilePath: '.env',
       isGlobal: true,
     }),
-    ApiModule,
+    FeaturesModule,
   ],
   controllers: [AppController],
   providers: [],
