@@ -8,7 +8,7 @@ export class UserPrismaRepository implements UserRepository {
   constructor(private prisma: PrismaService) {}
 
   async findAll(): Promise<User[]> {
-    const models = await this.prisma.prisma.user.findMany();
+    const models = await this.prisma.user.findMany();
     return models.map((model) =>
       User.fromPersistence({
         id: model.id,
