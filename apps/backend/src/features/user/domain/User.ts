@@ -31,4 +31,8 @@ export class User {
   ban() {
     this.isBanned = true;
   }
+
+  unban() {
+    this.isBanned = false;
+  }
 }

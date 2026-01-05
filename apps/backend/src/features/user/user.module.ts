@@ -4,6 +4,7 @@ import { UserPrismaRepository } from './infrastructure/prisma/user.prisma.reposi
 import { DatabaseModule } from 'src/infrastructure/database/database.module';
 import { FindAllUsersUseCase } from './application/find-all-users.usecase';
 import { BanUserUsecase } from './application/ban-user.usecase';
+import { UnbanUserUsecase } from './application/unban-user.usecase';
 
 @Module({
   imports: [DatabaseModule],
@@ -15,6 +16,7 @@ import { BanUserUsecase } from './application/ban-user.usecase';
     },
     FindAllUsersUseCase,
     BanUserUsecase,
+    UnbanUserUsecase,
   ],
 })
 export class UserModule {}
