@@ -18,4 +18,33 @@ export class UserPrismaRepository implements UserRepository {
       }),
     );
   }
+
+  async findById(id: string): Promise<User> {
+    const model = await this.prisma.user.findUnique({ where: { id } });
+    if (!model) throw new Error('User not found');
+
+    return User.fromPersistence({
+      id,
+      email: model.email,
+      name: model.name,
+      isBanned: model.is_banned,
+    });
+  }
+
+  async save(user: User): Promise<void> {
+    await this.prisma.user.upsert({
+      where: { id: user.id },
+      create: {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        is_banned: user.isBanned,
+      },
+      update: {
+        email: user.email,
+        name: user.name,
+        is_banned: user.isBanned,
+      },
+    });
+  }
 }

@@ -27,4 +27,8 @@ export class User {
   static fromPersistence(params: UserPrimitives & { id: string }): User {
     return new User(params);
   }
+
+  ban() {
+    this.isBanned = true;
+  }
 }
