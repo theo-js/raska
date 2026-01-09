@@ -1,7 +1,8 @@
 import { Inject } from '@nestjs/common';
 import type { UserRepository } from '../domain/UserRepository';
+import { UseCase } from 'src/core/application/UseCase';
 
-export class BanUserUsecase {
+export class BanUserUsecase implements UseCase {
   constructor(
     @Inject('UserRepository')
     private readonly users: UserRepository,
