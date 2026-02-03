@@ -11,6 +11,8 @@ export class UnbanUserUsecase implements UseCase {
 
   async execute({ id }: { id: string }): Promise<void> {
     const user = await this.users.findById(id);
+    if (!user) throw new Error(`User with id ${id} not found`);
+
     user.unban();
     await this.users.save(user);
   }
