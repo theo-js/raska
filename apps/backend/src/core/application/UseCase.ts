@@ -1,3 +1,3 @@
-export interface UseCase {
-  execute: (input: unknown) => Promise<unknown>;
+export interface UseCase<InputType = unknown> {
+  execute: (input: InputType) => Promise<unknown>;
 }
